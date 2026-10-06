@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnet RP</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#0b0d12;color:#eee}
+header{padding:35px 20px;text-align:center;background:linear-gradient(135deg,#151923,#242b3a);border-bottom:1px solid #555}
+header h1{margin:0;font-size:38px}
+header p{color:#aaa}
+.layout{display:flex;min-height:calc(100vh - 150px)}
+nav{width:250px;background:#11141b;padding:20px;border-right:1px solid #333}
+nav button{display:block;width:100%;margin:8px 0;padding:13px;text-align:left;border:0;border-radius:8px;background:#1b202b;color:#eee;cursor:pointer;font-size:15px}
+nav button:hover,nav button.active{background:#30394a}
+main{flex:1;padding:35px;max-width:1000px}
+.page{display:none;animation:fade .2s}
+.page.active{display:block}
+.card{background:#151923;border:1px solid #303642;border-radius:12px;padding:25px;margin-bottom:20px;box-shadow:0 8px 30px #0004}
+h2{margin-top:0;color:#d8b36a}
+h3{color:#cfd5df}
+.meta{color:#999;font-size:14px}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:700px){.layout{display:block}nav{width:100%;border-right:0;border-bottom:1px solid #333}main{padding:20px}header h1{font-size:28px}}
+</style>
+</head>
+<body>
+<header>
+<h1>📖 Carnet RP</h1>
+<p>Chroniques, souvenirs et aventures</p>
+</header>
+
+<div class="layout">
+<nav>
+<button class="active" onclick="showPage('accueil',this)">🏠 Accueil</button>
+<button onclick="showPage('personnage',this)">👤 Personnage</button>
+<button onclick="showPage('histoire',this)">📜 Histoire</button>
+<button onclick="showPage('journal',this)">📔 Journal</button>
+<button onclick="showPage('missions',this)">⚔️ Missions</button>
+<button onclick="showPage('souvenirs',this)">🕯️ Souvenirs</button>
+</nav>
+
+<main>
+<section id="accueil" class="page active">
+<div class="card">
+<h2>Bienvenue dans mon carnet</h2>
+<p>Bienvenue dans ce carnet. Vous trouverez ici l'histoire, les aventures, les missions et les souvenirs de mon personnage.</p>
+<p class="meta">Ce carnet est accessible à toute personne possédant le lien.</p>
+</div>
+</section>
+
+<section id="personnage" class="page">
+<div class="card">
+<h2>👤 Personnage</h2>
+<h3>Nom : À compléter</h3>
+<p><b>Village :</b> À compléter</p>
+<p><b>Clan :</b> À compléter</p>
+<p><b>Grade :</b> À compléter</p>
+<p><b>Spécialité :</b> À compléter</p>
+</div>
+</section>
+
+<section id="histoire" class="page">
+<div class="card">
+<h2>📜 Histoire</h2>
+<p>Écris ici l'histoire complète de ton personnage.</p>
+<p>Tu peux raconter son enfance, sa famille, ses rencontres, ses objectifs et les événements importants de sa vie.</p>
+</div>
+</section>
+
+<section id="journal" class="page">
+<div class="card">
+<h2>📔 Journal</h2>
+<h3>Entrée 01 — Première page</h3>
+<p class="meta">Date : À compléter</p>
+<p>Écris ici les événements importants de ton aventure.</p>
+</div>
+</section>
+
+<section id="missions" class="page">
+<div class="card">
+<h2>⚔️ Missions</h2>
+<h3>Mission — À compléter</h3>
+<p class="meta">Rang : D | Statut : Réussie</p>
+<p>Objectif et déroulement de la mission.</p>
+</div>
+</section>
+
+<section id="souvenirs" class="page">
+<div class="card">
+<h2>🕯️ Souvenirs</h2>
+<p>Cette partie peut contenir les souvenirs importants, les personnes rencontrées, les moments marquants et les événements qui ont changé ton personnage.</p>
+</div>
+</section>
+</main>
+</div>
+
+<script>
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
